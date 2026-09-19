@@ -6,6 +6,14 @@ Este é o repositório do site TM Shoes.
 
 Para visualizar o site localmente, basta abrir o arquivo `index.html` em seu navegador web preferido.
 
+Para subir um servidor local e acessar o site através de um endereço de rede, execute o seguinte comando na pasta raiz do projeto:
+
+```bash
+python -m http.server
+```
+
+Após executar o comando, abra seu navegador e acesse `http://localhost:8000` (ou a porta indicada pelo servidor, se for diferente).
+
 ## Estrutura do Projeto
 
 - `index.html`: Página inicial do site.
@@ -73,4 +81,4 @@ Este script irá baixar os dados da planilha e atualizar os arquivos HTML do sit
 
 ## Site
 
-* https://pauloschmittkras.github.io/tmshoes/
+* https://tmshoestati.github.io/tmshoes/

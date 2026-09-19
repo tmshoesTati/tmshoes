@@ -39,6 +39,13 @@ function parseCSV(csvText) {
         const row = {};
         for (let j = 0; j < headers.length; j++) {
             row[headers[j]] = values[j] !== undefined ? values[j].trim() : ''; // Handle cases where values might be missing
+            if (headers[j] === 'Imagem' && row[headers[j]]) {
+                row[headers[j]] = row[headers[j]].split(';').map(url => url.trim());
+            }
+        }
+        // Log para verificar o valor de 'Imagem' após o parsing
+        if (row.Imagem) {
+            console.log('Parsed Image (before split):', row.Imagem);
         }
         data.push(row);
     }
@@ -59,10 +66,19 @@ function displayShoes(shoes, containerId) {
     }
 
     shoes.forEach(shoe => {
+        // Log para verificar o valor de 'Imagem' antes de ser usado na tag <img>
+        if (shoe.Imagem) {
+            console.log('Display Image (before render):', shoe.Imagem);
+        }
         const shoeCard = document.createElement('div');
         shoeCard.className = 'shoe-card';
         shoeCard.innerHTML = `
-            <img src="${shoe.Imagem}" alt="${shoe.Nome}">
+            <div class="shoe-images">
+                ${(Array.isArray(shoe.Imagem) && shoe.Imagem.some(imgSrc => imgSrc && imgSrc.trim() !== ''))
+                    ? shoe.Imagem.map(imgSrc => imgSrc && imgSrc.trim() !== '' ? `<img src="${imgSrc}" alt="${shoe.Nome}">` : '').join('')
+                    : (shoe.Imagem && shoe.Imagem.trim() !== '' ? `<img src="${shoe.Imagem}" alt="${shoe.Nome}">` : `<div class="image-placeholder"></div>`)
+                }
+            </div>
             <h3>${shoe.Nome}</h3>
             <p><strong>COD:</strong> ${shoe.COD}<strong>&emsp;</strong>
                 <strong>Marca:</strong> ${shoe.Marca}<strong>&emsp;</strong>
