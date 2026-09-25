@@ -1,5 +1,11 @@
-const SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmnxg2ulGt7mDWX0C0blBFW72Bq4y92kWnK_wIGUvhRMV73MPsfztDX3NyHXBQaO37abzEa0O-gVLs/pub?output=csv';
 
+const SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmnxg2ulGt7mDWX0C0blBFW72Bq4y92kWnK_wIGUvhRMV73MPsfztDX3NyHXBQaO37abzEa0O-gVLs/pub?gid=138542835&single=true&output=csv';
+// documento inteiro
+//https://docs.google.com/spreadsheets/d/e/2PACX-1vRmnxg2ulGt7mDWX0C0blBFW72Bq4y92kWnK_wIGUvhRMV73MPsfztDX3NyHXBQaO37abzEa0O-gVLs/pub?output=csv
+// somente tmshoes
+//https://docs.google.com/spreadsheets/d/e/2PACX-1vRmnxg2ulGt7mDWX0C0blBFW72Bq4y92kWnK_wIGUvhRMV73MPsfztDX3NyHXBQaO37abzEa0O-gVLs/pub?gid=1979988840&single=true&output=csv
+//tmshoes2
+//https://docs.google.com/spreadsheets/d/e/2PACX-1vRmnxg2ulGt7mDWX0C0blBFW72Bq4y92kWnK_wIGUvhRMV73MPsfztDX3NyHXBQaO37abzEa0O-gVLs/pub?gid=138542835&single=true&output=csv
 async function fetchAndParseCSV(url) {
     const response = await fetch(url);
     const csvText = await response.text();
@@ -83,6 +89,12 @@ function displayShoes(shoes, containerId) {
             <p><strong>COD:</strong> ${shoe.COD}<strong>&emsp;</strong>
                 <strong>Marca:</strong> ${shoe.Marca}<strong>&emsp;</strong>
                 <strong>Cor:</strong> ${shoe.Cor}</p>
+            <p>
+                ${shoe.Promo && shoe.Promo.trim() !== ''
+                    ? `<strong>Preço:</strong> <span class="old-price">${shoe.Preco}</span><strong>&emsp;Promoção:</strong> <span class="promo-price">${shoe.Promo}</span>`
+                    : `<strong>Preço:</strong> <span>${shoe.Preco}</span>`
+                }
+            </p>
             <p><strong>Numeração disponível:</strong></p>
             <p class="shoe-numeration">${shoe.Numeracao && shoe.Numeracao.trim() !== '' ? shoe.Numeracao.split(';').map(num => `<span class="numeration-box">${num.trim()}</span>`).join('') : 'Indisponível!'}</p>
             <!-- <p><strong>Descrição:</strong> ${shoe.Descricao}</p> -->

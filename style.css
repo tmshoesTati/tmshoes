@@ -336,3 +336,16 @@ footer {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
+.old-price {
+    text-decoration: line-through;
+    color: var(--dark-gray);
+    font-size: 0.9em;
+    margin-right: 5px;
+}
+
+.promo-price {
+    color: rgba(7, 90, 51, 0.85); /* Vermelho/Bordô para destaque */
+    font-weight: bold;
+    font-size: 1.2em;
+}
