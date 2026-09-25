@@ -1,4 +1,5 @@
 
+
 const SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmnxg2ulGt7mDWX0C0blBFW72Bq4y92kWnK_wIGUvhRMV73MPsfztDX3NyHXBQaO37abzEa0O-gVLs/pub?gid=138542835&single=true&output=csv';
 // documento inteiro
 //https://docs.google.com/spreadsheets/d/e/2PACX-1vRmnxg2ulGt7mDWX0C0blBFW72Bq4y92kWnK_wIGUvhRMV73MPsfztDX3NyHXBQaO37abzEa0O-gVLs/pub?output=csv
@@ -124,8 +125,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (currentPage === 'flats.html') {
         filteredShoes = allShoes.filter(shoe => shoe.Tipo && shoe.Tipo.toLowerCase() === 'sandália');
     } else if (currentPage === 'outlet.html') {
-        // No momento, o outlet exibe todos os calçados. Se houver um tipo 'outlet' na planilha, ajustar aqui.
-        filteredShoes = allShoes;
+        filteredShoes = allShoes.filter(shoe => !shoe.Preco || shoe.Preco.trim() === '');
+    } else if (currentPage === 'promo.html') {
+        filteredShoes = allShoes.filter(shoe => shoe.Promo && shoe.Promo.trim() !== '' && !isNaN(parseFloat(shoe.Promo)));
     } else {
         // Para a página principal ou outros, exibir todos os calçados
         filteredShoes = allShoes;
