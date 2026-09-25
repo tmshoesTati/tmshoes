@@ -58,6 +58,11 @@ function parseCSV(csvText) {
     return data;
 }
 
+function formatPrice(price) {
+    const numericPrice = parseFloat(price);
+    return isNaN(numericPrice) ? price : numericPrice.toFixed(2).replace('.', ',');
+}
+
 function displayShoes(shoes, containerId) {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -91,8 +96,8 @@ function displayShoes(shoes, containerId) {
                 <strong>Cor:</strong> ${shoe.Cor}</p>
             <p>
                 ${shoe.Promo && shoe.Promo.trim() !== ''
-                    ? `<strong>Preço:</strong> <span class="old-price">${shoe.Preco}</span><strong>&emsp;Promoção:</strong> <span class="promo-price">${shoe.Promo}</span>`
-                    : `<strong>Preço:</strong> <span>${shoe.Preco}</span>`
+                    ? `<strong>Preço:</strong> <span class="old-price">${formatPrice(shoe.Preco)}</span><strong>&emsp;Promoção:</strong> <span class="promo-price">${formatPrice(shoe.Promo)}</span>`
+                    : `<strong>Preço:</strong> <span>${formatPrice(shoe.Preco)}</span>`
                 }
             </p>
             <p><strong>Numeração disponível:</strong></p>
