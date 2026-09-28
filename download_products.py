@@ -1,6 +1,6 @@
 import requests
 
-SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmnxg2ulGt7mDWX0C0blBFW72Bq4y92kWnK_wIGUvhRMV73MPsfztDX3NyHXBQaO37abzEa0O-gVLs/pub?gid=138542835&single=true&output=csv'
+SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRz4VmL1ECPDmmWwU9jR8HSH27H_tKpTMfSGQuXwbmZXcayOwP8i5lYaWTDmLkq42Ymj0vrUk0EcW7l/pub?gid=0&single=true&output=csv'
 LOCAL_CSV_PATH = 'products.csv'
 
 def download_csv(url, path):

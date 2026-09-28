@@ -1,6 +1,6 @@
 
 
-const SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmnxg2ulGt7mDWX0C0blBFW72Bq4y92kWnK_wIGUvhRMV73MPsfztDX3NyHXBQaO37abzEa0O-gVLs/pub?gid=138542835&single=true&output=csv';
+const SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRz4VmL1ECPDmmWwU9jR8HSH27H_tKpTMfSGQuXwbmZXcayOwP8i5lYaWTDmLkq42Ymj0vrUk0EcW7l/pub?gid=0&single=true&output=csv';
 // documento inteiro
 //https://docs.google.com/spreadsheets/d/e/2PACX-1vRmnxg2ulGt7mDWX0C0blBFW72Bq4y92kWnK_wIGUvhRMV73MPsfztDX3NyHXBQaO37abzEa0O-gVLs/pub?output=csv
 // somente tmshoes
@@ -92,8 +92,7 @@ function displayShoes(shoes, containerId) {
                 }
             </div>
             <h3>${shoe.Nome}</h3>
-            <p><strong>COD:</strong> ${shoe.COD}<strong>&emsp;</strong>
-                <strong>Marca:</strong> ${shoe.Marca}<strong>&emsp;</strong>
+            <p><strong>Marca:</strong> ${shoe.Marca}<strong>&emsp;</strong>
                 <strong>Cor:</strong> ${shoe.Cor}</p>
             <p>
                 ${shoe.Promo && shoe.Promo.trim() !== ''
