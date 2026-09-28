@@ -88,7 +88,7 @@ function displayShoes(shoes, containerId) {
             <div class="shoe-images">
                 ${(Array.isArray(shoe.Imagem) && shoe.Imagem.some(imgSrc => imgSrc && imgSrc.trim() !== ''))
                     ? shoe.Imagem.map(imgSrc => imgSrc && imgSrc.trim() !== '' ? `<img src="${imgSrc}" alt="${shoe.Nome}">` : '').join('')
-                    : (shoe.Imagem && shoe.Imagem.trim() !== '' ? `<img src="${shoe.Imagem}" alt="${shoe.Nome}">` : `<div class="image-placeholder"></div>`)
+                    : (shoe.Imagem && shoe.Imagem.trim() !== '' ? `<img src="${shoe.Imagem}" alt="${shoe.Nome}">` : "")
                 }
             </div>
             <h3>${shoe.Nome}</h3>
