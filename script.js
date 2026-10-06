@@ -118,11 +118,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (currentPage === 'botas.html') {
         filteredShoes = allShoes.filter(shoe => shoe.Tipo && shoe.Tipo.toLowerCase() === 'bota');
     } else if (currentPage === 'sapatos.html') {
-        filteredShoes = allShoes.filter(shoe => shoe.Tipo && shoe.Tipo.toLowerCase() === 'sapato');
+        filteredShoes = allShoes.filter(shoe => shoe.Tipo && shoe.Tipo.toLowerCase() === 'sapato' || shoe.Tipo.toLowerCase() === 'mocassim' || shoe.Tipo.toLowerCase() === 'mule' || shoe.Tipo.toLowerCase() === 'scarpin' || shoe.Tipo.toLowerCase() === 'slingback');
     } else if (currentPage === 'tenis.html') {
         filteredShoes = allShoes.filter(shoe => shoe.Tipo && shoe.Tipo.toLowerCase() === 'tênis');
     } else if (currentPage === 'flats.html') {
-        filteredShoes = allShoes.filter(shoe => shoe.Tipo && shoe.Tipo.toLowerCase() === 'sandália');
+        filteredShoes = allShoes.filter(shoe => shoe.Tipo && shoe.Tipo.toLowerCase() === 'sandália' || shoe.Tipo.toLowerCase() === 'tamanco' || shoe.Tipo.toLowerCase() === 'chinelo' || shoe.Tipo.toLowerCase() === 'tamanco');
     } else if (currentPage === 'outlet.html') {
         filteredShoes = allShoes.filter(shoe => !shoe.Preco || shoe.Preco.trim() === '');
     } else if (currentPage === 'promo.html') {
