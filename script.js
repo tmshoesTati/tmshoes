@@ -127,6 +127,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         filteredShoes = allShoes.filter(shoe => !shoe.Preco || shoe.Preco.trim() === '');
     } else if (currentPage === 'promo.html') {
         filteredShoes = allShoes.filter(shoe => shoe.Promo && shoe.Promo.trim() !== '' && !isNaN(parseFloat(shoe.Promo)));
+    } else if (currentPage === 'sandalias.html') {
+        filteredShoes = allShoes.filter(shoe => shoe.Tipo && shoe.Tipo.toLowerCase() === 'sandália' || shoe.Tipo.toLowerCase() === 'tamanco' || shoe.Tipo.toLowerCase() === 'chinelo' || shoe.Tipo.toLowerCase() === 'rasteira');
     } else {
         // Para a página principal ou outros, exibir todos os calçados
         filteredShoes = allShoes;
