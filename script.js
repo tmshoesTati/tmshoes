@@ -1,12 +1,5 @@
-
-
 const SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRz4VmL1ECPDmmWwU9jR8HSH27H_tKpTMfSGQuXwbmZXcayOwP8i5lYaWTDmLkq42Ymj0vrUk0EcW7l/pub?gid=0&single=true&output=csv';
-// documento inteiro
-//https://docs.google.com/spreadsheets/d/e/2PACX-1vRmnxg2ulGt7mDWX0C0blBFW72Bq4y92kWnK_wIGUvhRMV73MPsfztDX3NyHXBQaO37abzEa0O-gVLs/pub?output=csv
-// somente tmshoes
-//https://docs.google.com/spreadsheets/d/e/2PACX-1vRmnxg2ulGt7mDWX0C0blBFW72Bq4y92kWnK_wIGUvhRMV73MPsfztDX3NyHXBQaO37abzEa0O-gVLs/pub?gid=1979988840&single=true&output=csv
-//tmshoes2
-//https://docs.google.com/spreadsheets/d/e/2PACX-1vRmnxg2ulGt7mDWX0C0blBFW72Bq4y92kWnK_wIGUvhRMV73MPsfztDX3NyHXBQaO37abzEa0O-gVLs/pub?gid=138542835&single=true&output=csv
+
 async function fetchAndParseCSV(url) {
     const response = await fetch(url);
     const csvText = await response.text();
@@ -105,6 +98,8 @@ function displayShoes(shoes, containerId) {
             <!-- <p><strong>Descrição:</strong> ${shoe.Descricao}</p> -->
         `;
         container.appendChild(shoeCard);
+        // Cria e desabilita o botão de compartilhamento inicialmente para cada card
+        toggleShareButton(shoeCard, null, shoe.Nome);
     });
 }
 
@@ -162,4 +157,73 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Chama a função ao carregar a página e ao redimensionar
     adjustBodyPadding();
     window.addEventListener("resize", adjustBodyPadding);
+
+    const shoesContainer = document.getElementById(containerId);
+    if (shoesContainer) {
+        shoesContainer.addEventListener("click", (event) => {
+            if (event.target.classList.contains("numeration-box")) {
+                const shoeNumber = event.target.textContent.trim();
+                const shoeCard = event.target.closest(".shoe-card");
+                if (shoeCard) {
+                    const shoeNameElement = shoeCard.querySelector("h3");
+                    const shoeName = shoeNameElement ? shoeNameElement.textContent.trim() : "Calçado Desconhecido";
+
+                    // Desmarca qualquer numeração selecionada previamente neste card
+                    const previouslySelected = shoeCard.querySelector(".numeration-box.selected");
+                    if (previouslySelected && previouslySelected !== event.target) {
+                        previouslySelected.classList.remove("selected");
+                    }
+
+                    // Alterna a seleção do número atual
+                    event.target.classList.toggle("selected");
+
+                    const isSelected = event.target.classList.contains("selected");
+                    let selectedNumber = "";
+                    if (isSelected) {
+                        selectedNumber = shoeNumber;
+                    }
+
+                    // Armazenar o número selecionado e o nome do calçado no dataset do shoeCard
+                    shoeCard.dataset.selectedNumber = selectedNumber;
+                    shoeCard.dataset.shoeName = shoeName;
+
+                    toggleShareButton(shoeCard, isSelected ? selectedNumber : null, shoeName);
+                }
+            }
+        });
+    }
 });
+
+function toggleShareButton(shoeCard, selectedNumber, shoeName) {
+    let shareButton = shoeCard.querySelector(".share-button");
+
+    // Se o botão não existe, cria-o uma vez (isso é chamado da displayShoes)
+    if (!shareButton) {
+        shareButton = document.createElement("button");
+        shareButton.className = "share-button";
+        shareButton.textContent = "Tenho interesse.";
+        shoeCard.appendChild(shareButton);
+
+        shareButton.addEventListener("click", () => {
+            const currentSelectedNumber = shoeCard.dataset.selectedNumber;
+            const currentShoeName = shoeCard.dataset.shoeName;
+
+            if (currentSelectedNumber) {
+                const whatsappNumber = "555193257074";
+                const pageLink = window.location.href;
+                const message = `Olá, tenho interesse no calçado ${currentShoeName}, número ${currentSelectedNumber}. Link: ${pageLink}`;
+                const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappLink, "_blank");
+            } else {
+                alert("Por favor, selecione um número de calçado antes de expressar interesse.");
+            }
+        });
+    }
+
+    // Habilita ou desabilita o botão com base na seleção
+    if (selectedNumber) {
+        shareButton.disabled = false;
+    } else {
+        shareButton.disabled = true;
+    }
+}

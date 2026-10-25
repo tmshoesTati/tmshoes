@@ -317,7 +317,7 @@ footer {
 }
 .numeration-box {
     display: inline-block;
-    border: 1px solid #c4c4c4;
+    border: 1px solid #b38181;
     padding: 5px 8px;
     margin: 5px;
     border-radius: 5px;
@@ -334,7 +334,37 @@ footer {
 .numeration-box:hover {
     background-color: var(--light-gray);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(226, 12, 12, 0.897);
+}
+
+.numeration-box.selected {
+    background-color: lightpink;
+    color: var(--primary-color);
+    border-color: var(--medium-gray);
+}
+
+.share-button {
+    display: block;
+    width: fit-content; /* Ajuste a largura para o conteúdo */
+    margin: 15px auto 0 auto; /* Centraliza o botão e adiciona margem superior */
+    padding: 10px 15px;
+    background-color: #47d47b; /* Cor do WhatsApp */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.share-button:hover:not(:disabled) { /* Só hover se não estiver desabilitado */
+    background-color: #1DA851;
+}
+
+.share-button:disabled {
+    background-color: #cccccc; /* Cor cinza para botão desabilitado */
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .old-price {
