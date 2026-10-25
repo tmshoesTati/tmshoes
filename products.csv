@@ -1,4 +1,4 @@
-Marca,Tipo,Nome,Cor,Salto,Numeracao,Preco,Promo,Imagem,503
+Marca,Tipo,Nome,Cor,Salto,Numeracao,Preco,Promo,Imagem,502
 Vizzano,Sandália,Melissa,Brilho off,9,34;35;36;37;38;39,"189,9","159,9",https://i.ibb.co/Nn3NqMxv/Melissa6.jpg;https://i.ibb.co/rGHtQNVv/Melissa7.jpg,
 Vizzano,Sandália,Melissa,Preto,9,34;35;36;37;38;39,"149,9",,https://i.ibb.co/m5yj4t05/Melissa4.jpg;https://i.ibb.co/KjqqN09k/Melissa3.jpg,
 Vizzano,Sandália,Melissa,Off White,9,35;36;37;38;39,"149,9",,https://i.ibb.co/rRfGLNMq/Melissa2.jpg;https://i.ibb.co/DPVDCKw3/Melissa1.jpg,
@@ -92,7 +92,7 @@ Beira Rio,Tênis,Gabi,Branco,,36;39,"189,9",109,https://i.ibb.co/JRz320YV/gabi2.
 Beira Rio,Tênis,Gabi,Caramelo,,35;37;39,"189,9",109,https://i.ibb.co/GfWYRvsQ/gabi1.jpg;https://i.ibb.co/GfRSB1B2/gabi5.jpg,
 TM Shoes,Tênis,TM,Estrela,,35;36;37;38;39,219,119,,
 Vizzano,Tênis,Mariana,Off White,,36;37;39,"189,9","139,9",https://i.ibb.co/d0NsTg2S/mariana4.jpg;https://i.ibb.co/PZhjJ2vk/mariana1.jpg,
-Vizzano,Tênis,Mariana,Caramelo,,33;34;35,"189,9","139,9",https://i.ibb.co/HTcxtLWX/mariana5.jpg,
+Vizzano,Tênis,Mariana,Caramelo,,33;34;36,"189,9","139,9",https://i.ibb.co/HTcxtLWX/mariana5.jpg,
 Actvitta,Tênis,Actvitta,Cinza,,37;39,"189,9",109,,
 Actvitta,Tênis,Actvitta,Rosa,,38;39,"199,9",109,,
 Vizzano,Tênis,Paola,Branco,,35;38,"239,9",,https://i.ibb.co/pHMc7MM/Paola1.jpg,
@@ -120,7 +120,7 @@ Vizzano,Tamanco,Jessi,Nude,,35;36,"129,9",,,
 Vizzano,Sandália,Anabela,Cinza,,38,"149,9",,,
 Vizzano,Sandália,Anabela,Preto,,36;37,"149,9",,,
 Vizzano,Scarpin,Alice,Tachinhas,,35;36;38,"159,9",,https://i.ibb.co/zHbTSQWN/Alice-5.png;https://i.ibb.co/F4b6nTTw/Alice-6.png,
-Vizzano,Scarpin,Alice,Off White,,36;38,"149,9",,,
+Vizzano,Scarpin,Alice,Off White,,36,"149,9",,,
 Vizzano,Scarpin,Anny,Nude,,34;36,"159,9",,,
 Beira Rio,Mule,Tratorada,Off White,,34,"119,9",,,
 Beira Rio,Mule,Tratorada,Rosa,,35;37,"119,9",,,
